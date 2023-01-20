@@ -5,15 +5,21 @@ function App() {
   // 화살함수
   const convert = () => console.log("단위를 min에서 hours로 변경합니다");
   const [amount, setAmount] = useState("0");
-
+  const [disabled, setDisabled] = useState(false); // 입력폼의 disabled 상태와 연결(=데이터 바인딩)
   // 일반함수
   function handleChange(event) {
     setAmount(event.target.value);
   }
 
   // 화살표 함수 표기법
-  const resetInput = () => setAmount("0");
+  const resetInput = () => {
+    setAmount("0");
+    setDisabled(false);
+  };
   const handleSubmit = (e) => e.preventDefault(); // 이벤트 전파를 막아서 새로고침을 안되게!
+  const inversion = () => {
+    setDisabled((prev) => !prev);
+  };
   return (
     <div className='main'>
       <h1 className='site-header'>단위 환산 앱</h1>
@@ -27,22 +33,26 @@ function App() {
               <li>
                 <input
                   type='text'
-                  value={amount}
+                  value={disabled ? amount * 60 : amount}
                   onChange={handleChange}
                   placeholder='값을 입력하세요'
+                  disabled={disabled}
                 />
                 <label>minutes</label>
               </li>
               <li>
                 <input
                   type='text'
-                  value={amount / 60}
+                  value={!disabled ? amount / 60 : amount}
                   placeholder='값을 입력하세요'
+                  onChange={handleChange}
+                  disabled={!disabled}
                 />
                 <label>hours</label>
               </li>
               <li>
                 <button onClick={resetInput}>리셋</button>
+                <button onClick={inversion}>반전</button>
               </li>
             </ul>
           </form>
