@@ -1,12 +1,23 @@
 h1 {
   margin: 0;
   padding: 0;
+  position: relative; /* 추가작성 */
 }
 .site-header {
   background: darkslateblue;
   color: white;
   padding: 1rem;
   text-align: center;
+}
+.site-header button {
+  /* 추가작성 */
+  position: absolute;
+  right: 5%;
+  top: 30%;
+}
+.dark .site-header {
+  /* 추가작성 */
+  background: #383d3b;
 }
 
 .unit-converter {
@@ -15,12 +26,14 @@ h1 {
   justify-content: center;
   margin: 2rem;
 }
+
 .ad {
   background: #eee;
   width: 400px;
   height: 300px;
 }
 .converter {
+  min-width: 700px; /* 추가작성 */
   padding: 1rem;
 }
 .converter ul {
@@ -32,4 +45,21 @@ h1 {
 .converter input {
   padding: 0.5rem 1rem;
   width: 80%;
+}
+.title {
+  /* 추가작성 */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.title select {
+  /* 추가작성 */
+  height: 30px;
+}
+
+label {
+  margin-left: 1rem;
+}
+button {
+  margin-right: 0.5rem;
 }
