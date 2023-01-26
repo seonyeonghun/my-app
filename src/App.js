@@ -7,7 +7,7 @@ import InchToCentimeters from "./component/InchToCentimeters";
 function App() {
   // 화살함수
   const [mode, setMode] = useState(false);
-  const [converter, setConverter] = useState(0);
+  const [converter, setConverter] = useState("0");
   const handleChange = (e) => setConverter(e.target.value);
   const handleSubmit = (e) => e.preventDefault(); // 이벤트 전파를 막아서 새로고침을 안되게!
   const handleMode = () => setMode((prev) => !prev);
