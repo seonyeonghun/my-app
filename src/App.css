@@ -24,7 +24,7 @@ h1 {
   display: flex;
   max-width: 1190px;
   justify-content: center;
-  margin: 2rem;
+  margin: 2rem auto;
 }
 
 .ad {
